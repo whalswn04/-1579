@@ -1,0 +1,16 @@
+{
+  "name": "TalkLab Messenger Final",
+  "short_name": "TalkLab",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffdf32",
+  "theme_color": "#ffdf32",
+  "icons": [
+    {
+      "src": "/assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

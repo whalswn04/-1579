@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#ffdf32"/>
+  <ellipse cx="256" cy="226" rx="150" ry="104" fill="#402b2b"/>
+  <path d="M171 302 L127 386 L224 318 Z" fill="#402b2b"/>
+  <text x="256" y="219" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="84" font-weight="900" fill="#ffdf32">TALK</text>
+  <text x="256" y="292" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="58" font-weight="900" fill="#ffdf32">LAB</text>
+</svg>

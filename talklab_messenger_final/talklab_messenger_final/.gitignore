@@ -1,0 +1,6 @@
+build/
+data/*.db
+data/*.db-*
+node_modules/
+dist/
+.DS_Store

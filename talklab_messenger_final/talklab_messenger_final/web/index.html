@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TalkLab Messenger</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#ffdf32" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="auth-card" id="loginView" aria-label="로그인 화면">
+      <div class="window-bar">
+        <button class="window-icon" type="button" aria-label="메뉴">☰</button>
+        <span class="bar-divider"></span>
+        <button class="window-icon" type="button" aria-label="최소화">−</button>
+        <button class="window-icon" type="button" aria-label="닫기">×</button>
+      </div>
+
+      <div class="brand-zone">
+        <div class="bubble-logo" aria-hidden="true">TALK<br><span>LAB</span></div>
+        <p class="brand-caption">Network Programming Messenger</p>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+        <div class="stacked-inputs">
+          <input id="loginId" autocomplete="username" placeholder="TalkLab 계정 아이디" required />
+          <input id="loginPw" type="password" autocomplete="current-password" placeholder="비밀번호" required />
+        </div>
+        <button class="primary-btn" id="loginBtn" type="submit" disabled>로그인</button>
+        <label class="check-row">
+          <input id="rememberMe" type="checkbox" />
+          <span>이 기기에서 로그인 유지</span>
+        </label>
+      </form>
+
+      <div class="guide-box">
+        <p>처음 실행했다면 두 개 이상의 계정을 만든 뒤 친구 추가와 1:1 채팅을 테스트하세요.</p>
+        <button class="link-btn" id="openSignup" type="button">TalkLab 계정 만들기</button>
+      </div>
+
+      <button class="install-btn" id="installBtn" type="button" hidden>바탕화면 앱으로 설치</button>
+      <p class="message" id="loginMessage" role="status"></p>
+    </section>
+
+    <section class="auth-card signup-card" id="signupView" hidden aria-label="가입 화면">
+      <div class="window-bar left-title">
+        <button class="window-icon" id="backToLogin" type="button" aria-label="뒤로">‹</button>
+        <span class="window-title">계정 만들기</span>
+      </div>
+
+      <div class="brand-zone small">
+        <div class="bubble-logo small" aria-hidden="true">TALK<br><span>LAB</span></div>
+      </div>
+
+      <form class="auth-form" id="signupForm">
+        <div class="stacked-inputs">
+          <input id="signupName" placeholder="표시 이름" required />
+          <input id="signupId" autocomplete="username" placeholder="사용할 아이디" required />
+          <input id="signupPw" type="password" autocomplete="new-password" placeholder="비밀번호 6자 이상" required />
+        </div>
+        <button class="primary-btn" type="submit">가입하기</button>
+      </form>
+      <p class="message" id="signupMessage" role="status"></p>
+    </section>
+
+    <section class="app-shell" id="appView" hidden aria-label="메신저 화면">
+      <aside class="sidebar">
+        <header class="profile-card">
+          <div>
+            <strong id="currentName">TalkLab</strong>
+            <p id="currentId">로그인 중</p>
+          </div>
+          <button class="text-btn" id="logoutBtn" type="button">로그아웃</button>
+        </header>
+
+        <div class="connection-row">
+          <span class="status-dot" id="wsDot"></span>
+          <span id="wsStatus">WebSocket 준비 중</span>
+        </div>
+
+        <nav class="tabs" aria-label="주요 메뉴">
+          <button class="tab active" id="tabFriends" type="button">친구</button>
+          <button class="tab" id="tabChats" type="button">채팅</button>
+        </nav>
+
+        <section class="panel" id="friendsPanel">
+          <form class="compact-form" id="addFriendForm">
+            <input id="friendIdInput" placeholder="친구 아이디 입력" />
+            <button class="small-btn" type="submit">추가</button>
+          </form>
+          <p class="mini-message" id="friendMessage"></p>
+          <div class="section-title">친구 목록</div>
+          <div class="list" id="friendList"></div>
+        </section>
+
+        <section class="panel" id="chatsPanel" hidden>
+          <div class="section-title">채팅방</div>
+          <div class="list" id="roomList"></div>
+        </section>
+      </aside>
+
+      <section class="chat-area">
+        <div class="empty-chat" id="emptyChat">
+          <div class="bubble-logo mini" aria-hidden="true">T</div>
+          <strong>친구를 추가하고 채팅방을 여세요.</strong>
+          <p>브라우저 두 개 또는 시크릿 창을 열어 서로 다른 계정으로 로그인하면 실시간 수신을 확인할 수 있습니다.</p>
+        </div>
+
+        <div class="chat-room" id="chatRoom" hidden>
+          <header class="chat-header">
+            <div>
+              <strong id="chatTitle">채팅방</strong>
+              <p id="chatMeta">1:1 대화</p>
+            </div>
+            <button class="text-btn" id="refreshBtn" type="button">새로고침</button>
+          </header>
+
+          <div class="message-list" id="messageList"></div>
+
+          <form class="message-form" id="messageForm">
+            <input id="messageInput" placeholder="메시지 입력" autocomplete="off" />
+            <button class="send-btn" type="submit">전송</button>
+          </form>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

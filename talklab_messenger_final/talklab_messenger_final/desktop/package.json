@@ -1,0 +1,28 @@
+{
+  "name": "talklab-desktop",
+  "version": "0.1.0",
+  "description": "TalkLab desktop shell. The C++ server must be running separately.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "lab.talklab.desktop",
+    "productName": "TalkLab",
+    "files": [
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
